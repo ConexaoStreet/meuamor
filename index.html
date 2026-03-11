@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="prefetch" href="recadinho.html" />
 </head>
 <body>
   <div class="floating-hearts" aria-hidden="true"></div>
@@ -19,11 +18,7 @@
     <source src="assets/mirrors.mp3" type="audio/mpeg" />
   </audio>
 
-  <audio id="voiceNote" preload="none">
-    <source src="assets/nossa-voz.mp3" type="audio/mpeg" />
-  </audio>
-
-  <div class="countdown-lock" id="countdownLock">
+    <div class="countdown-lock" id="countdownLock">
     <div class="countdown-backdrop"></div>
     <div class="countdown-inner container">
       <div class="countdown-photo-wrap reveal visible">
@@ -49,7 +44,7 @@
 
         <div class="countdown-actions">
           <button class="primary-btn" id="reminderBtn" type="button">Adicionar lembrete</button>
-          <button class="ghost-btn" id="voiceToggle" type="button">Abrir meu recadinho</button>
+          <a class="ghost-btn" id="voiceToggle" href="recadinho.html">Ouvir meu recadinho</a>
         </div>
         <p class="countdown-help">Cada segundo sem você me sinto completamente vazio. Eu te amo, meu raio de sol 💜</p>
       </div>

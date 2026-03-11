@@ -17,7 +17,6 @@ if (reveals.length && 'IntersectionObserver' in window && !prefersReducedMotion)
 
 const music = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
-const voiceNote = document.getElementById('voiceNote');
 const voiceToggle = document.getElementById('voiceToggle');
 const MUSIC_START_TIME = 320; // 05:20
 
@@ -59,8 +58,9 @@ musicToggle?.addEventListener('click', () => toggleAudio(music, musicToggle, {
   missing: 'Adicione assets/mirrors.mp3'
 }, { onBeforePlay: () => { music.volume = 0.55; safeSetStart(music, MUSIC_START_TIME); } }));
 
-voiceToggle?.addEventListener('click', () => {
-  try { sessionStorage.setItem('autoplayVoiceNote', '1'); } catch (_) {}
+voiceToggle?.addEventListener('click', (event) => {
+  if (voiceToggle.tagName !== 'A') return;
+  event.preventDefault();
   window.location.href = 'recadinho.html';
 });
 
