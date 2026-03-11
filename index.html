@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Estrelinha ✨</title>
+  <meta name="description" content="Um presente romântico de Dia das Mulheres para Lupyta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="floating-hearts" aria-hidden="true"></div>
+  <div class="noise"></div>
+
+  <audio id="bgMusic" loop preload="none">
+    <source src="assets/mirrors.mp3" type="audio/mpeg" />
+  </audio>
+
+  <header class="hero" id="topo">
+    <nav class="topbar container">
+      <div class="brand">Minha Estrelinha ✨</div>
+      <div class="actions">
+        <button id="musicToggle" class="glass-btn" type="button">Tocar nossa música</button>
+        <a class="glass-btn" href="#galeria">Nossas fotos</a>
+      </div>
+    </nav>
+
+    <div class="hero-content container">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">8 de março • um presente feito com amor</p>
+        <h1>Feliz Dia das Mulheres, <span>Lupyta</span> 💜</h1>
+        <p class="lead">
+          Pra minha <strong>estrelinha</strong>, meu amor, minha paixão, amor da minha vida e meu raio de sol:
+          esse cantinho foi feito pra lembrar o quanto você é linda, rara, intensa e especial em cada detalhe.
+        </p>
+        <div class="hero-buttons">
+          <a href="#carta" class="primary-btn">Ler minha cartinha</a>
+          <a href="#video" class="secondary-btn">Ver nosso vídeo</a>
+        </div>
+        <div class="hero-tags">
+          <span>Minha estrelinha</span>
+          <span>Meu amor</span>
+          <span>Minha paixão</span>
+          <span>Raio de sol</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-1">
+        <div class="hero-card main-photo tilt-card">
+          <img src="assets/favorita.jpg" alt="Foto favorita do casal" />
+          <div class="caption">uma das minhas fotos preferidas 💞</div>
+        </div>
+        <div class="hero-card small one tilt-card">
+          <img src="assets/cabelo-roxo.jpg" alt="Casal com visual roxo" />
+        </div>
+        <div class="hero-card small two tilt-card">
+          <img src="assets/primeira-foto.jpg" alt="Primeira foto do casal" />
+        </div>
+        <div class="sparkle"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section intro-section container reveal">
+      <div class="section-head">
+        <p class="eyebrow">Tudo que eu sinto por você</p>
+        <h2>Você deixa meu mundo mais bonito</h2>
+      </div>
+      <div class="intro-grid">
+        <article class="glass-panel">
+          <h3>Seu jeito</h3>
+          <p>Tem doçura, força, carinho, intensidade e aquele brilho que só você tem. Você é o tipo de mulher que marca a vida da gente de um jeito bonito e impossível de esquecer.</p>
+        </article>
+        <article class="glass-panel">
+          <h3>Nosso amor</h3>
+          <p>Cada momento com você vira memória boa. Até as coisas simples ficam especiais quando é com você, minha estrelinha.</p>
+        </article>
+        <article class="glass-panel">
+          <h3>Meu orgulho</h3>
+          <p>Nesse Dia das Mulheres, eu queria te lembrar que além de linda, você é incrível, forte e uma das pessoas mais especiais que eu já conheci.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-contrast" id="galeria">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Nossas lembranças</p>
+          <h2>Uma galeria só nossa</h2>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-card reveal tall"><img src="assets/primeira-foto.jpg" alt="Nossa primeira foto" /><figcaption>Nossa primeira fotinha 🥹</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/dormindo.jpg" alt="Foto dormindo" /><figcaption>Nossa primeira foto dormindo</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/segunda-foto.jpg" alt="Nossa segunda foto juntos" /><figcaption>Nossa segunda foto juntos</figcaption></figure>
+          <figure class="gallery-card reveal wide"><img src="assets/foto-zoada.jpg" alt="Foto divertida do casal" /><figcaption>A melhor foto zoada, porque até nossa bagunça é linda 😂💜</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/despedida.webp" alt="Nossa primeira despedida" /><figcaption>Nossa primeira despedida</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/primeiro-role.jpg" alt="Uma das primeiras vezes que saímos" /><figcaption>Uma das primeiras vezes que saímos</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/cabelo-roxo.jpg" alt="Foto com cabelo roxo" /><figcaption>Nossos cabelões roxos ✨</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/favorita.jpg" alt="Uma das fotos preferidas" /><figcaption>Uma das minhas preferidas</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="video">
+      <div class="section-head reveal">
+        <p class="eyebrow">Nosso momento especial</p>
+        <h2>O nosso melhor vídeo</h2>
+      </div>
+
+      <div class="video-wrap reveal">
+        <div class="video-ring"></div>
+        <video class="main-video" autoplay muted loop playsinline controls poster="assets/nosso-melhor-video-poster.jpg">
+          <source src="assets/nosso-melhor-video.mp4" type="video/mp4" />
+        </video>
+        <div class="video-note">
+          <strong>Pra ficar ainda mais lindo:</strong> esse vídeo já abre sem som. O botão lá em cima ativa nossa música quando você quiser.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contrast">
+      <div class="container love-layout">
+        <div class="reveal">
+          <p class="eyebrow">Alguns motivos</p>
+          <h2>Por que você é tão especial pra mim</h2>
+          <div class="reasons-list">
+            <div class="reason-card"><span>01</span><p>Porque seu sorriso clareia meu dia de um jeito absurdo.</p></div>
+            <div class="reason-card"><span>02</span><p>Porque seu abraço parece casa, paz e amor ao mesmo tempo.</p></div>
+            <div class="reason-card"><span>03</span><p>Porque até os momentos mais simples viram lembranças lindas com você.</p></div>
+            <div class="reason-card"><span>04</span><p>Porque você é minha estrelinha favorita nesse mundo inteiro.</p></div>
+          </div>
+        </div>
+
+        <div class="side-stack reveal delay-1">
+          <div class="mini-memory tilt-card">
+            <img src="assets/foto-afiliada.jpg" alt="Foto do casal" />
+            <div>
+              <small>Memória linda</small>
+              <strong>Você em cada detalhe bonito da minha vida</strong>
+            </div>
+          </div>
+          <div class="mini-memory tilt-card">
+            <video muted loop autoplay playsinline>
+              <source src="assets/primeira-viagem.mp4" type="video/mp4" />
+            </video>
+            <div>
+              <small>Primeira viagem</small>
+              <strong>Mais uma prova de que com você tudo fica especial</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="carta">
+      <div class="letter reveal">
+        <p class="eyebrow">Minha cartinha pra você</p>
+        <h2>Pra minha estrelinha 💌</h2>
+        <p>
+          Meu amor, hoje eu só queria te lembrar do quanto você é importante pra mim. Você é uma mulher linda, forte,
+          especial e daquelas que fazem tudo ao redor ficar mais leve e mais bonito.
+        </p>
+        <p>
+          Eu admiro seu jeito, seu coração, seu carinho, sua beleza e a forma como você consegue ser inesquecível em cada detalhe.
+          Você é minha paixão, meu raio de sol, meu amor da minha vida e, acima de tudo, a minha estrelinha favorita.
+        </p>
+        <p>
+          Obrigado por existir, por ser você, por colorir meus dias e por fazer meu coração se sentir tão completo.
+          Nesse Dia das Mulheres, eu quero que você se olhe com o mesmo brilho que eu te vejo: como alguém raríssima,
+          preciosa e absolutamente maravilhosa.
+        </p>
+        <p class="signature">Com todo meu amor, sempre. ✨</p>
+      </div>
+    </section>
+
+    <section class="section final-section">
+      <div class="container final-card reveal">
+        <p class="eyebrow">Finalzinho, mas com muito amor</p>
+        <h2>Você é o meu lugar favorito no mundo 💜</h2>
+        <p>
+          E esse site é só uma forma pequenininha de tentar mostrar o tamanho do que eu sinto por você.
+          Feliz Dia das Mulheres, minha estrelinha. Eu te amo demais.
+        </p>
+        <a href="#topo" class="primary-btn">Voltar pro começo</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
