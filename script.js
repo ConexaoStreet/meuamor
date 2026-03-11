@@ -11,16 +11,40 @@ reveals.forEach((el) => observer.observe(el));
 
 const music = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
-let musicReady = false;
+const MUSIC_START_TIME = 320; // 05:20
+
+function setMusicStartTime() {
+  if (!music) return;
+  const applyStart = () => {
+    try {
+      if (Number.isFinite(music.duration) && music.duration > MUSIC_START_TIME) {
+        music.currentTime = MUSIC_START_TIME;
+      } else {
+        music.currentTime = 0;
+      }
+    } catch (error) {
+      console.warn('Não foi possível ajustar o tempo inicial da música.', error);
+    }
+  };
+
+  if (music.readyState >= 1) {
+    applyStart();
+  } else {
+    music.addEventListener('loadedmetadata', applyStart, { once: true });
+  }
+}
+
+setMusicStartTime();
 
 async function toggleMusic() {
-  if (!music) return;
+  if (!music || !musicToggle) return;
   try {
     if (music.paused) {
+      setMusicStartTime();
       music.volume = 0.55;
       await music.play();
       musicToggle.textContent = 'Pausar nossa música';
-      musicReady = true;
+      musicToggle.classList.remove('missing-audio');
     } else {
       music.pause();
       musicToggle.textContent = 'Tocar nossa música';
