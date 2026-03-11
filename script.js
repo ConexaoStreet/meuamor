@@ -1,83 +1,91 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.14 });
-reveals.forEach((el) => observer.observe(el));
+if (reveals.length && 'IntersectionObserver' in window && !prefersReducedMotion) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -5% 0px' });
+  reveals.forEach((el) => observer.observe(el));
+} else {
+  reveals.forEach((el) => el.classList.add('visible'));
+}
 
 const music = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
+const voiceNote = document.getElementById('voiceNote');
+const voiceToggle = document.getElementById('voiceToggle');
 const MUSIC_START_TIME = 320; // 05:20
 
-function setMusicStartTime() {
-  if (!music) return;
-  const applyStart = () => {
+function safeSetStart(audio, startTime) {
+  if (!audio) return;
+  const apply = () => {
     try {
-      if (Number.isFinite(music.duration) && music.duration > MUSIC_START_TIME) {
-        music.currentTime = MUSIC_START_TIME;
-      } else {
-        music.currentTime = 0;
-      }
-    } catch (error) {
-      console.warn('Não foi possível ajustar o tempo inicial da música.', error);
-    }
+      audio.currentTime = Number.isFinite(audio.duration) && audio.duration > startTime ? startTime : 0;
+    } catch (_) {}
   };
-
-  if (music.readyState >= 1) {
-    applyStart();
-  } else {
-    music.addEventListener('loadedmetadata', applyStart, { once: true });
-  }
+  if (audio.readyState >= 1) apply();
+  else audio.addEventListener('loadedmetadata', apply, { once: true });
 }
 
-setMusicStartTime();
+safeSetStart(music, MUSIC_START_TIME);
 
-async function toggleMusic() {
-  if (!music || !musicToggle) return;
+async function toggleAudio(audio, button, labels, options = {}) {
+  if (!audio || !button) return;
   try {
-    if (music.paused) {
-      setMusicStartTime();
-      music.volume = 0.55;
-      await music.play();
-      musicToggle.textContent = 'Pausar nossa música';
-      musicToggle.classList.remove('missing-audio');
+    if (audio.paused) {
+      if (options.onBeforePlay) options.onBeforePlay();
+      await audio.play();
+      button.textContent = labels.pause;
+      button.classList.remove('missing-audio');
     } else {
-      music.pause();
-      musicToggle.textContent = 'Tocar nossa música';
+      audio.pause();
+      button.textContent = labels.play;
     }
   } catch (error) {
-    musicToggle.textContent = 'Adicione assets/mirrors.mp3';
-    musicToggle.classList.add('missing-audio');
-    console.warn('Arquivo de música não encontrado ou bloqueado pelo navegador.', error);
+    button.textContent = labels.missing;
+    button.classList.add('missing-audio');
+    console.warn('Áudio ausente ou bloqueado pelo navegador.', error);
   }
 }
 
-musicToggle?.addEventListener('click', toggleMusic);
+musicToggle?.addEventListener('click', () => toggleAudio(music, musicToggle, {
+  play: 'Tocar nossa música',
+  pause: 'Pausar nossa música',
+  missing: 'Adicione assets/mirrors.mp3'
+}, { onBeforePlay: () => { music.volume = 0.55; safeSetStart(music, MUSIC_START_TIME); } }));
 
-const tiltCards = document.querySelectorAll('.tilt-card');
-tiltCards.forEach((card) => {
-  card.addEventListener('mousemove', (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const rotateY = ((x / rect.width) - 0.5) * 10;
-    const rotateX = ((y / rect.height) - 0.5) * -10;
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
+voiceToggle?.addEventListener('click', () => toggleAudio(voiceNote, voiceToggle, {
+  play: 'Ouvir meu recadinho',
+  pause: 'Pausar recadinho',
+  missing: 'Adicione assets/nossa-voz.mp3'
+}, { onBeforePlay: () => { if (voiceNote) voiceNote.volume = 1; } }));
 
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
+if (window.matchMedia('(pointer:fine)').matches && !prefersReducedMotion) {
+  const tiltCards = document.querySelectorAll('.tilt-card');
+  tiltCards.forEach((card) => {
+    card.addEventListener('mousemove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+      const rotateX = ((y / rect.height) - 0.5) * -8;
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+    }, { passive: true });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    }, { passive: true });
+  });
 }
-window.scrollTo({ top: 0, behavior: 'auto' });
 
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
+
+document.body.classList.add('locked-site');
 
 const countdownTarget = new Date('2026-04-04T00:00:00-03:00');
 const countdownEls = {
@@ -92,8 +100,8 @@ const countdownEls = {
 };
 
 function updateCountdown() {
-  const now = new Date();
-  let diff = Math.max(0, countdownTarget.getTime() - now.getTime());
+  const now = Date.now();
+  let diff = Math.max(0, countdownTarget.getTime() - now);
 
   const yearMs = 365 * 24 * 60 * 60 * 1000;
   const monthMs = 30 * 24 * 60 * 60 * 1000;
@@ -123,12 +131,9 @@ function updateCountdown() {
 }
 
 updateCountdown();
-setInterval(updateCountdown, 50);
-
-document.body.classList.add('locked-site');
+setInterval(updateCountdown, 80);
 
 const reminderBtn = document.getElementById('reminderBtn');
-
 function downloadReminder() {
   const ics = [
     'BEGIN:VCALENDAR',
@@ -159,7 +164,6 @@ function downloadReminder() {
   document.body.appendChild(link);
   link.click();
   link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-
 reminderBtn?.addEventListener('click', downloadReminder);

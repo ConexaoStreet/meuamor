@@ -18,11 +18,15 @@
     <source src="assets/mirrors.mp3" type="audio/mpeg" />
   </audio>
 
-    <div class="countdown-lock" id="countdownLock">
+  <audio id="voiceNote" preload="none">
+    <source src="assets/nossa-voz.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="countdown-lock" id="countdownLock">
     <div class="countdown-backdrop"></div>
     <div class="countdown-inner container">
       <div class="countdown-photo-wrap reveal visible">
-        <img class="countdown-photo" src="assets/favorita.jpg" alt="Nossa foto especial" />
+        <img class="countdown-photo" src="assets/favorita.jpg" alt="Nossa foto especial" fetchpriority="high" decoding="async" />
         <div class="countdown-photo-glow"></div>
       </div>
 
@@ -44,6 +48,7 @@
 
         <div class="countdown-actions">
           <button class="primary-btn" id="reminderBtn" type="button">Adicionar lembrete</button>
+          <button class="ghost-btn" id="voiceToggle" type="button">Ouvir meu recadinho</button>
         </div>
         <p class="countdown-help">Cada segundo sem você me sinto completamente vazio. Eu te amo, meu raio de sol 💜</p>
       </div>
@@ -74,14 +79,14 @@
 
       <div class="hero-visual reveal delay-1">
         <div class="hero-card main-photo tilt-card">
-          <img src="assets/favorita.jpg" alt="Foto favorita do casal" />
+          <img src="assets/favorita.jpg" alt="Foto favorita do casal" fetchpriority="high" decoding="async" />
           <div class="caption">Minha foto favorita, 2 anos de nós!</div>
         </div>
         <div class="hero-card small one tilt-card">
-          <img src="assets/cabelo-roxo.jpg" alt="Casal com visual roxo" />
+          <img src="assets/cabelo-roxo.jpg" alt="Casal com visual roxo" loading="lazy" decoding="async" />
         </div>
         <div class="hero-card small two tilt-card">
-          <img src="assets/primeira-foto.jpg" alt="Primeira foto do casal" />
+          <img src="assets/primeira-foto.jpg" alt="Primeira foto do casal" loading="lazy" decoding="async" />
         </div>
         <div class="sparkle"></div>
       </div>
@@ -123,14 +128,14 @@
           </div>
         </div>
         <div class="gallery-grid">
-          <figure class="gallery-card reveal tall"><img src="assets/primeira-foto.jpg" alt="Nossa primeira foto" /><figcaption>Nossa primeira foto juntos</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/dormindo.jpg" alt="Nossa primeira foto dormindo" /><figcaption>Nossa primeira foto cmg dormindo</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/segunda-foto.jpg" alt="Nossa segunda foto juntos" /><figcaption>Nossa segunda foto juntos após 9 meses</figcaption></figure>
-          <figure class="gallery-card reveal wide"><img src="assets/foto-zoada.jpg" alt="Nossa foto zoada" /><figcaption>A melhor foto nossa zoada</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/despedida.webp" alt="Nossa primeira despedida" /><figcaption>Nossa primeira despedida 😕</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/primeiro-role.jpg" alt="Uma das primeiras vezes que saímos" /><figcaption>Uma das primeiras vezes que saímos</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/cabelo-roxo.jpg" alt="Nossos cabelões roxos" /><figcaption>Nossos cabelões roxos no beco kkk</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/favorita.jpg" alt="Uma das minhas preferidas" /><figcaption>Uma das minhas preferidas</figcaption></figure>
+          <figure class="gallery-card reveal tall"><img src="assets/primeira-foto.jpg" alt="Nossa primeira foto" loading="lazy" decoding="async" /><figcaption>Nossa primeira foto juntos</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/dormindo.jpg" alt="Nossa primeira foto dormindo" loading="lazy" decoding="async" /><figcaption>Nossa primeira foto cmg dormindo</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/segunda-foto.jpg" alt="Nossa segunda foto juntos" loading="lazy" decoding="async" /><figcaption>Nossa segunda foto juntos após 9 meses</figcaption></figure>
+          <figure class="gallery-card reveal wide"><img src="assets/foto-zoada.jpg" alt="Nossa foto zoada" loading="lazy" decoding="async" /><figcaption>A melhor foto nossa zoada</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/despedida.webp" alt="Nossa primeira despedida" loading="lazy" decoding="async" /><figcaption>Nossa primeira despedida 😕</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/primeiro-role.jpg" alt="Uma das primeiras vezes que saímos" loading="lazy" decoding="async" /><figcaption>Uma das primeiras vezes que saímos</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/cabelo-roxo.jpg" alt="Nossos cabelões roxos" loading="lazy" decoding="async" /><figcaption>Nossos cabelões roxos no beco kkk</figcaption></figure>
+          <figure class="gallery-card reveal"><img src="assets/favorita.jpg" alt="Uma das minhas preferidas" loading="lazy" decoding="async" /><figcaption>Uma das minhas preferidas</figcaption></figure>
         </div>
       </div>
     </section>
@@ -145,7 +150,7 @@
         <div class="video-ring"></div>
         <div class="video-shell">
           <div class="video-badge">Nosso vídeo 💜</div>
-          <video class="main-video" autoplay muted loop playsinline controls poster="assets/nosso-melhor-video-poster.jpg">
+          <video class="main-video" autoplay muted loop playsinline controls preload="metadata" poster="assets/nosso-melhor-video-poster.jpg">
             <source src="assets/nosso-melhor-video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -167,14 +172,14 @@
 
         <div class="side-stack reveal delay-1">
           <div class="mini-memory tilt-card memorial-card">
-            <img src="assets/foto-afiliada.jpg" alt="Foto especial" />
+            <img src="assets/foto-afiliada.jpg" alt="Foto especial" loading="lazy" decoding="async" />
             <div>
               <small>AS MULHERES QUE MAIS SINTO FALTA</small>
               <strong>A falta que sinto de vocês não está escrito</strong>
             </div>
           </div>
           <div class="mini-memory tilt-card">
-            <video muted loop autoplay playsinline>
+            <video muted loop autoplay playsinline preload="metadata">
               <source src="assets/primeira-viagem.mp4" type="video/mp4" />
             </video>
             <div>
