@@ -123,7 +123,7 @@ function updateCountdown() {
 }
 
 updateCountdown();
-setInterval(updateCountdown, 43);
+setInterval(updateCountdown, 50);
 
 document.body.classList.add('locked-site');
 
@@ -141,9 +141,7 @@ function downloadReminder() {
     'DTSTART:20260404T120000Z',
     'DTEND:20260404T130000Z',
     'SUMMARY:Contagem regressiva acabou 💜',
-    'DESCRIPTION:Dia 04/04 chegou. Hora de matar a saudade.
-
-Lembrete criado pelo site Meu Amor.',
+    'DESCRIPTION:Dia 04/04 chegou. Hora de matar a saudade.\n\nLembrete criado pelo site Meu Amor.',
     'BEGIN:VALARM',
     'TRIGGER:-PT12H',
     'ACTION:DISPLAY',
@@ -151,8 +149,7 @@ Lembrete criado pelo site Meu Amor.',
     'END:VALARM',
     'END:VEVENT',
     'END:VCALENDAR'
-  ].join('
-');
+  ].join('\r\n');
 
   const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
   const url = URL.createObjectURL(blob);

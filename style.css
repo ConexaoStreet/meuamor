@@ -708,3 +708,149 @@ body.locked-site {
     padding: 16px 10px;
   }
 }
+
+
+/* ===== FIX OVERLAY SAUDADE ===== */
+.countdown-lock {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow-y: auto;
+  padding: 16px 0 28px;
+}
+
+.countdown-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(280px, 430px) minmax(320px, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  min-height: 100%;
+}
+
+.countdown-photo-wrap,
+.countdown-card {
+  min-width: 0;
+}
+
+.countdown-photo-wrap {
+  min-height: 72svh;
+  display: block;
+}
+
+.countdown-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 108px;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.count-unit span {
+  display: block;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.count-unit small {
+  display: block;
+  width: 100%;
+  line-height: 1.2;
+}
+
+.countdown-actions {
+  margin-top: 20px;
+}
+
+@media (max-width: 980px) {
+  .countdown-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .countdown-photo-wrap {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 720px) {
+  .countdown-lock {
+    padding: 10px 0 22px;
+  }
+
+  .countdown-inner {
+    gap: 14px;
+  }
+
+  .countdown-photo-wrap {
+    min-height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+  }
+
+  .countdown-card {
+    padding: 22px 16px;
+    border-radius: 24px;
+  }
+
+  .countdown-card h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.02;
+    margin-bottom: 14px;
+  }
+
+  .countdown-text {
+    margin-bottom: 18px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .count-unit {
+    min-height: 94px;
+    border-radius: 18px;
+    padding: 14px 8px;
+  }
+
+  .count-unit span {
+    font-size: 1.7rem;
+    margin-bottom: 6px;
+  }
+
+  .count-unit small {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
+  .countdown-help {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  #reminderBtn {
+    width: 100%;
+  }
+}
