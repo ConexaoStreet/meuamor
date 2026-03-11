@@ -59,11 +59,10 @@ musicToggle?.addEventListener('click', () => toggleAudio(music, musicToggle, {
   missing: 'Adicione assets/mirrors.mp3'
 }, { onBeforePlay: () => { music.volume = 0.55; safeSetStart(music, MUSIC_START_TIME); } }));
 
-voiceToggle?.addEventListener('click', () => toggleAudio(voiceNote, voiceToggle, {
-  play: 'Ouvir meu recadinho',
-  pause: 'Pausar recadinho',
-  missing: 'Adicione assets/nossa-voz.mp3'
-}, { onBeforePlay: () => { if (voiceNote) voiceNote.volume = 1; } }));
+voiceToggle?.addEventListener('click', () => {
+  try { sessionStorage.setItem('autoplayVoiceNote', '1'); } catch (_) {}
+  window.location.href = 'recadinho.html';
+});
 
 if (window.matchMedia('(pointer:fine)').matches && !prefersReducedMotion) {
   const tiltCards = document.querySelectorAll('.tilt-card');

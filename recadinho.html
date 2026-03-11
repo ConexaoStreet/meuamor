@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu recadinho pra você 💜</title>
+  <meta name="description" content="Um recadinho em áudio, com todo o amor do mundo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="recadinho.css" />
+</head>
+<body>
+  <div class="voice-page">
+    <div class="voice-bg"></div>
+    <div class="voice-noise"></div>
+
+    <header class="voice-topbar">
+      <a class="back-link" href="index.html">← Voltar pro nosso cantinho</a>
+      <span class="top-pill">Meu recadinho pra você</span>
+    </header>
+
+    <main class="voice-shell">
+      <section class="voice-hero">
+        <div class="voice-copy reveal in">
+          <p class="eyebrow">Um pedacinho da minha voz guardado pra você</p>
+          <h1>Quando a saudade apertar, <span>me escuta aqui</span> ✨</h1>
+          <p class="voice-lead">Eu quis deixar esse espacinho bonito, calmo e cheio de amor pra você ouvir minha voz sempre que sentir falta. É como se um pedacinho de mim estivesse aí com você.</p>
+
+          <div class="voice-player-card">
+            <div class="player-top">
+              <button id="playVoice" class="play-btn" type="button" aria-label="Tocar áudio">▶</button>
+              <div>
+                <small class="mini-label">Áudio especial</small>
+                <strong class="player-title">nossa-voz.mp3</strong>
+              </div>
+            </div>
+
+            <div class="player-timeline">
+              <input id="voiceSeek" class="seekbar" type="range" min="0" max="1000" value="0" step="1" aria-label="Progresso do áudio" />
+              <div class="time-row">
+                <span id="currentTime">00:00</span>
+                <span id="totalTime">00:00</span>
+              </div>
+            </div>
+
+            <div class="player-actions">
+              <button id="restartVoice" class="soft-btn" type="button">Ouvir do começo</button>
+              <button id="toggleAutoScroll" class="soft-btn active" type="button">Transcrição acompanhando</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-photo-card reveal in delay-1">
+          <div class="photo-frame">
+            <img src="assets/favorita.jpg" alt="Nossa foto" />
+            <div class="photo-overlay"></div>
+            <div class="photo-note">
+              <small>Pra minha estrelinha</small>
+              <strong>Um áudio pra te abraçar mesmo de longe 💜</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="transcript-section reveal in delay-2">
+        <div class="transcript-head">
+          <div>
+            <p class="eyebrow">Cada palavra acende junto com a minha voz</p>
+            <h2>A transcrição do nosso recadinho</h2>
+          </div>
+          <p class="transcript-tip">Você pode tocar em qualquer palavra pra pular direto pra aquele pedacinho do áudio.</p>
+        </div>
+
+        <div id="transcriptBox" class="transcript-box" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <audio id="voiceAudio" preload="metadata">
+      <source src="assets/nossa-voz.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="recadinho.js"></script>
+  </div>
+</body>
+</html>
