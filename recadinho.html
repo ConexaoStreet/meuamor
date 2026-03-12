@@ -11,28 +11,30 @@
   <link rel="stylesheet" href="recadinho.css" />
 </head>
 <body>
-  <div class="ambient ambient-1"></div>
-  <div class="ambient ambient-2"></div>
+  <div class="ambient ambient-1" aria-hidden="true"></div>
+  <div class="ambient ambient-2" aria-hidden="true"></div>
+
   <main class="page">
     <a class="back-link" href="index.html">← Voltar pro nosso cantinho</a>
 
-    <section class="hero-card">
-      <div class="photo-wrap">
-        <img src="assets/primeira-foto.jpg" alt="Nossa primeira foto" />
+    <section class="hero-panel">
+      <div class="hero-photo">
+        <img src="assets/primeira-foto.jpg" alt="Nossa primeira foto" fetchpriority="high" decoding="async" />
+        <div class="hero-photo-overlay"></div>
       </div>
 
-      <div class="copy-wrap">
+      <div class="hero-content">
         <p class="eyebrow">Meu recadinho pra você</p>
         <h1>Um pedacinho da saudade que sinto por você</h1>
         <p class="lead">Quando você estiver morrendo de saudades, amor, lembra de mim. Eu vou estar aqui, morrendo de saudades, mas deixei esse cantinho pra você, lembrar de cada momento nosso.</p>
 
-        <div class="player-card">
+        <section class="player-card" aria-label="Player do recadinho">
           <div class="player-top">
-            <div>
+            <div class="player-copy">
               <small>Meu recado pra vc lembrar de mim💜</small>
               <strong>Fiz esse áudio pensando em você, meu amor ❤️</strong>
             </div>
-            <button id="playBtn" class="play-btn" type="button">Tocar áudio</button>
+            <button id="playBtn" class="play-btn" type="button" aria-controls="voiceAudio">Ouvir agora</button>
           </div>
 
           <audio id="voiceAudio" controls playsinline preload="metadata">
@@ -40,8 +42,8 @@
             Seu navegador não conseguiu abrir o áudio.
           </audio>
 
-          <p id="audioStatus" class="audio-status">No iPhone, toca pelo botão acima ou pelos controles do player.</p>
-        </div>
+          <p id="audioStatus" class="audio-status">Toque no botão ou nos controles do player pra ouvir meu recadinho 💜</p>
+        </section>
       </div>
     </section>
 

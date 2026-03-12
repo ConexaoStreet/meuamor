@@ -698,9 +698,11 @@ button { font: inherit; }
   cursor: pointer;
 }
 
+html.locked-site,
 body.locked-site {
   overflow: hidden;
   height: 100svh;
+  overscroll-behavior: none;
 }
 
 @media (max-width: 980px) {

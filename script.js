@@ -85,6 +85,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
 
 document.body.classList.add('locked-site');
+document.documentElement.classList.add('locked-site');
 
 const countdownTarget = new Date('2026-04-04T00:00:00-03:00');
 const countdownEls = {
@@ -130,7 +131,7 @@ function updateCountdown() {
 }
 
 updateCountdown();
-setInterval(updateCountdown, 80);
+setInterval(updateCountdown, 100);
 
 const reminderBtn = document.getElementById('reminderBtn');
 function downloadReminder() {

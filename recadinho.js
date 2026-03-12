@@ -6,6 +6,7 @@ const transcriptEl = document.getElementById('transcript');
 let words = [];
 let wordNodes = [];
 let lastActiveIndex = -1;
+let ticking = false;
 
 fetch('assets/nossa-voz.txt')
   .then((r) => r.text())
@@ -31,14 +32,14 @@ function renderTranscript() {
       try {
         audio.currentTime = targetTime;
       } catch (_) {}
-      highlightByTime();
+      updateWordHighlight();
     });
     transcriptEl.appendChild(span);
     return span;
   });
 }
 
-function highlightByTime() {
+function updateWordHighlight() {
   if (!wordNodes.length) return;
   const duration = Math.max(audio.duration || 1, 1);
   const progress = Math.min(Math.max(audio.currentTime / duration, 0), 1);
@@ -47,13 +48,29 @@ function highlightByTime() {
   if (activeIndex === lastActiveIndex) return;
   lastActiveIndex = activeIndex;
 
-  wordNodes.forEach((node, idx) => {
-    node.classList.toggle('active', idx <= activeIndex);
-    node.classList.toggle('current', idx === activeIndex);
-  });
+  for (let i = 0; i < wordNodes.length; i += 1) {
+    const node = wordNodes[i];
+    node.classList.toggle('active', i <= activeIndex);
+    node.classList.toggle('current', i === activeIndex);
+  }
 
   const current = wordNodes[activeIndex];
-  current?.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+  if (current) {
+    const transcriptRect = transcriptEl.getBoundingClientRect();
+    const currentRect = current.getBoundingClientRect();
+    if (currentRect.bottom > transcriptRect.bottom - 30 || currentRect.top < transcriptRect.top + 30) {
+      current.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'smooth' });
+    }
+  }
+}
+
+function requestHighlight() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    updateWordHighlight();
+    ticking = false;
+  });
 }
 
 playBtn.addEventListener('click', async () => {
@@ -64,27 +81,27 @@ playBtn.addEventListener('click', async () => {
       playBtn.textContent = 'Pausar áudio';
     } else {
       audio.pause();
-      playBtn.textContent = 'Tocar áudio';
+      playBtn.textContent = 'Ouvir agora';
       statusEl.textContent = 'Áudio pausado.';
     }
   } catch (err) {
-    statusEl.textContent = 'No iPhone, toque novamente ou use os controles do player logo abaixo.';
+    statusEl.textContent = 'Se não tocar de primeira, usa os controles do player logo abaixo.';
     console.error('Erro ao tocar áudio:', err);
   }
 });
 
 audio.addEventListener('pause', () => {
-  if (!audio.ended) playBtn.textContent = 'Tocar áudio';
+  if (!audio.ended) playBtn.textContent = 'Ouvir agora';
 });
 
 audio.addEventListener('play', () => {
   playBtn.textContent = 'Pausar áudio';
 });
 
-audio.addEventListener('timeupdate', highlightByTime);
-audio.addEventListener('loadedmetadata', renderTranscript);
-
+audio.addEventListener('timeupdate', requestHighlight, { passive: true });
+audio.addEventListener('seeked', requestHighlight, { passive: true });
+audio.addEventListener('loadedmetadata', renderTranscript, { passive: true });
 audio.addEventListener('ended', () => {
-  playBtn.textContent = 'Tocar áudio de novo';
+  playBtn.textContent = 'Ouvir de novo';
   statusEl.textContent = 'Terminou 💜';
 });
