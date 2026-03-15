@@ -3,208 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minha Estrelinha ✨</title>
-  <meta name="description" content="Um presente romântico de Dia das Mulheres para Lupyta." />
+  <title>Em manutenção</title>
+  <meta name="description" content="Uma página simples de manutenção com recado e lembranças." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="floating-hearts" aria-hidden="true"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
   <div class="noise"></div>
 
-  <audio id="bgMusic" loop preload="metadata">
-    <source src="assets/mirrors.mp3" type="audio/mpeg" />
-  </audio>
+  <main class="page">
+    <section class="hero shell reveal visible">
+      <p class="eyebrow">SITE EM MANUTENÇÃO</p>
+      <h1>Em manutenção</h1>
+      <p class="subtitle">Nem tudo é realmente pra sempre, por exemplo, esse site mesmo foi desfeito kkk.</p>
+      <div class="divider"></div>
+      <p class="message">
+        Mas algumas lembranças continuam bonitas mesmo assim. Então deixei só esse recado simples,
+        com algumas fotinhas pequenas, porque apesar de tudo, certas fases ainda merecem um espacinho.
+      </p>
+    </section>
 
-    <div class="countdown-lock" id="countdownLock">
-    <div class="countdown-backdrop"></div>
-    <div class="countdown-inner container">
-      <div class="countdown-photo-wrap reveal visible">
-        <img class="countdown-photo" src="assets/favorita.jpg" alt="Nossa foto especial" fetchpriority="high" decoding="async" loading="eager" />
-        <div class="countdown-photo-glow"></div>
-      </div>
-
-      <div class="countdown-card reveal visible">
-        <p class="eyebrow">Contando os segundos pra matar a saudade de você, meu amor</p>
-        <h2>Já estou morrendo de saudades 💜</h2>
-        <p class="countdown-text">Essa contagem representa cada milissegundos, cada momento que eu penso em você, cada segundo que lembro de nós, e cada hora que espero o seu abraço dnv. Eu te amo mais doq tudo, meu raio de sol!</p>
-
-        <div class="countdown-grid" id="countdownGrid">
-          <div class="count-unit"><span id="cdYears">0</span><small>anos</small></div>
-          <div class="count-unit"><span id="cdMonths">0</span><small>meses</small></div>
-          <div class="count-unit"><span id="cdWeeks">0</span><small>semanas</small></div>
-          <div class="count-unit"><span id="cdDays">0</span><small>dias</small></div>
-          <div class="count-unit"><span id="cdHours">0</span><small>horas</small></div>
-          <div class="count-unit"><span id="cdMinutes">0</span><small>min</small></div>
-          <div class="count-unit"><span id="cdSeconds">0</span><small>seg</small></div>
-          <div class="count-unit count-unit-ms"><span id="cdMilliseconds">000</span><small>ms</small></div>
-        </div>
-
-        <div class="countdown-actions">
-          <button class="primary-btn" id="reminderBtn" type="button">Adicionar lembrete</button>
-          <a class="ghost-btn" id="voiceToggle" href="recadinho.html">Abrir meu recadinho</a>
-        </div>
-        <p class="countdown-help">Cada segundo sem você me sinto completamente vazio. Eu te amo, meu raio de sol 💜</p>
-      </div>
-    </div>
-  </div>
-
-  <header class="hero" id="topo">
-    <nav class="topbar container">
-      <div class="brand">Minha Estrelinha ✨</div>
-      <div class="actions">
-        <button id="musicToggle" class="glass-btn" type="button">Tocar nossa música</button>
-        <a class="glass-btn" href="#galeria">Nossas fotos</a>
-      </div>
-    </nav>
-
-    <div class="hero-content container">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">8 de março • A surpresinha surpresa que te falei</p>
-        <h1>Feliz Dia das Mulheres, <span>meu amor</span> 💜</h1>
-        <p class="lead">
-          Pra minha estrelinha, eu te agradeço cada segundo por você ter entrado na minha vida, clica na nossa música e vc vai entender tudo 💜. Eu te amo, minha princesinha.
-        </p>
-        <div class="hero-buttons">
-          <a href="#carta" class="primary-btn">Ler minha cartinha</a>
-          <a href="#video" class="secondary-btn">Ver nosso vídeo</a>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal delay-1">
-        <div class="hero-card main-photo tilt-card">
-          <img src="assets/favorita.jpg" alt="Foto favorita do casal" fetchpriority="high" decoding="async" />
-          <div class="caption">Minha foto favorita, 2 anos de nós!</div>
-        </div>
-        <div class="hero-card small one tilt-card">
-          <img src="assets/cabelo-roxo.jpg" alt="Casal com visual roxo" loading="lazy" decoding="async" />
-        </div>
-        <div class="hero-card small two tilt-card">
-          <img src="assets/primeira-foto.jpg" alt="Primeira foto do casal" loading="lazy" decoding="async" />
-        </div>
-        <div class="sparkle"></div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="section intro-section container reveal">
+    <section class="gallery shell reveal visible">
       <div class="section-head">
-        <p class="eyebrow">Tudo que eu sinto por você</p>
-        <h2>Você deixa meu mundo muito mais bonito desde aquele storys reagido.</h2>
+        <h2>Alguns registros</h2>
+        <p>Pequenos cards só pra guardar um restinho da história.</p>
       </div>
-      <div class="intro-grid">
-        <article class="glass-panel">
-          <h3>Seu jeito</h3>
-          <p>Seu jeito de ser é maravilhoso, trabalhadora, amorosa, perfeita, tchuthuca, linda, e consegue melhorar tudo ao seu redor.</p>
+
+      <div class="photo-grid">
+        <article class="photo-card">
+          <img src="assets/primeira-foto.jpg" alt="Primeira foto" loading="lazy" />
+          <span>Primeira foto</span>
         </article>
-        <article class="glass-panel">
-          <h3>Nós dois</h3>
-          <p>Desde que o dia que eu te mandei a primeira mensagem, numca pensei que conquistaria uma pessoa tão linda e perfeita igual a você. 2 anos de nós, tudo perfeito, mais doq a gente pode imaginar, muito obrigado por todo, minha linda.</p>
+
+        <article class="photo-card">
+          <img src="assets/favorita.jpg" alt="Foto favorita" loading="lazy" />
+          <span>Favorita</span>
         </article>
-        <article class="glass-panel">
-          <h3>O que eu vejo em você</h3>
-          <p>Ainda preciso dizer o que eu vejo em você? Uma mulher incrível, trabalhadora, amorosa... Mesmo com pouco tempo, consegue ser a mulher mais incrível que existe no mundo! E eu te amo muito por isso 💜</p>
+
+        <article class="photo-card">
+          <img src="assets/cabelo-roxo.jpg" alt="Cabelo roxo" loading="lazy" />
+          <span>Cabelos roxos</span>
         </article>
-      </div>
-    </section>
 
-    <section class="section section-contrast" id="galeria">
-      <div class="container">
-        <div class="section-head reveal dual-head">
-          <div>
-            <p class="eyebrow">Nossa história</p>
-            <h2>Nossa foto do jeitinho mais lindo</h2>
-          </div>
-          <div>
-            <p class="eyebrow">Nossos momentos</p>
-            <h2 class="subhead">Tudo que eu guardo na galeria com carinho</h2>
-          </div>
-        </div>
-        <div class="gallery-grid">
-          <figure class="gallery-card reveal tall"><img src="assets/primeira-foto.jpg" alt="Nossa primeira foto" loading="lazy" decoding="async" /><figcaption>Nossa primeira foto juntos</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/dormindo.jpg" alt="Nossa primeira foto dormindo" loading="lazy" decoding="async" /><figcaption>Nossa primeira foto cmg dormindo</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/segunda-foto.jpg" alt="Nossa segunda foto juntos" loading="lazy" decoding="async" /><figcaption>Nossa segunda foto juntos após 9 meses</figcaption></figure>
-          <figure class="gallery-card reveal wide"><img src="assets/foto-zoada.jpg" alt="Nossa foto zoada" loading="lazy" decoding="async" /><figcaption>A melhor foto nossa zoada</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/despedida.webp" alt="Nossa primeira despedida" loading="lazy" decoding="async" /><figcaption>Nossa primeira despedida 😕</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/primeiro-role.jpg" alt="Uma das primeiras vezes que saímos" loading="lazy" decoding="async" /><figcaption>Uma das primeiras vezes que saímos</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/cabelo-roxo.jpg" alt="Nossos cabelões roxos" loading="lazy" decoding="async" /><figcaption>Nossos cabelões roxos no beco kkk</figcaption></figure>
-          <figure class="gallery-card reveal"><img src="assets/favorita.jpg" alt="Uma das minhas preferidas" loading="lazy" decoding="async" /><figcaption>Uma das minhas preferidas</figcaption></figure>
-        </div>
-      </div>
-    </section>
+        <article class="photo-card">
+          <img src="assets/segunda-foto.jpg" alt="Segunda foto" loading="lazy" />
+          <span>Depois de um tempo</span>
+        </article>
 
-    <section class="section container" id="video">
-      <div class="section-head reveal">
-        <p class="eyebrow">Nosso momento especial</p>
-        <h2>O nosso melhor vídeo</h2>
-      </div>
+        <article class="photo-card">
+          <img src="assets/primeiro-role.jpg" alt="Primeiro rolê" loading="lazy" />
+          <span>Primeiro rolê</span>
+        </article>
 
-      <div class="video-wrap reveal">
-        <div class="video-ring"></div>
-        <div class="video-shell">
-          <div class="video-badge">Nosso vídeo 💜</div>
-          <video class="main-video" autoplay muted loop playsinline controls preload="metadata" poster="assets/nosso-melhor-video-poster.jpg">
-            <source src="assets/nosso-melhor-video.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-contrast">
-      <div class="container love-layout">
-        <div class="reveal">
-          <p class="eyebrow">Alguns motivos</p>
-          <h2>Por que você é tão especial pra mim</h2>
-          <div class="reasons-list">
-            <div class="reason-card"><span>01</span><p>Porque você me livrou da depressão no começo do namoro kkk</p></div>
-            <div class="reason-card"><span>02</span><p>Poque vc me deixa bem claro o quanto me ama todos os dias</p></div>
-            <div class="reason-card"><span>03</span><p>Porque com você tudo fica especial.</p></div>
-            <div class="reason-card"><span>04</span><p>Porque você é minha estrelinha favorita.</p></div>
-          </div>
-        </div>
-
-        <div class="side-stack reveal delay-1">
-          <div class="mini-memory tilt-card memorial-card">
-            <img src="assets/foto-afiliada.jpg" alt="Foto especial" loading="lazy" decoding="async" />
-            <div>
-              <small>AS MULHERES QUE MAIS SINTO FALTA</small>
-              <strong>A falta que sinto de vocês não está escrito</strong>
-            </div>
-          </div>
-          <div class="mini-memory tilt-card">
-            <video muted loop autoplay playsinline preload="metadata">
-              <source src="assets/primeira-viagem.mp4" type="video/mp4" />
-            </video>
-            <div>
-              <small>NOSSO MOMENTO</small>
-              <strong>Com você, até um instante pequeno consegue parecer infinito</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section container" id="carta">
-      <div class="letter reveal">
-        <p class="eyebrow">Minha cartinha pra você</p>
-        <h2>Pra minha estrelinha ✨</h2>
-        <p>Amor, sinceramente, eu não sei nem dizer o quao incrível você é. Tudo em você é absolutamente incrível. Eu te amo mais doq tudo, desde que você entrou na minha vida, você conseguiu mudar absolutamente tudo que eu já vivi. Muito obrigado mesmo por cada segundinho que vivemos juntos! 2 anos de nós e eu não consigo pensar em viver sem você, cada segundo eu penso em você, cada momento penso como seria se você estivesse aqui comigo, essa separação temporária está me matando, eu te amo mais doq tudo, meu amor. Espero que goste do site! Muito obrigado por tudo mesmo!!!</p>
-        <p class="signature">Eu te amo demais. 💜</p>
-      </div>
-    </section>
-
-    <section class="section final-section">
-      <div class="container final-card reveal">
-        <p class="eyebrow">Finalzinho, mas com muito amor</p>
-        <h2>Você é o meu lugar favorito no mundo 💜</h2>
-        <p>
-          E esse site é só uma forma pequenininha de tentar mostrar o tamanho do que eu sinto por você.
-          Feliz Dia das Mulheres, minha estrelinha. Eu te amo demais.
-        </p>
-        <a href="#topo" class="primary-btn">Voltar pro começo</a>
+        <article class="photo-card">
+          <img src="assets/foto-zoada.jpg" alt="Foto zoada" loading="lazy" />
+          <span>Foto zoada</span>
+        </article>
       </div>
     </section>
   </main>
